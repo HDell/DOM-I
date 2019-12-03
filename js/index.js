@@ -56,12 +56,39 @@ ctaText2.textContent = " Is";
 let ctaText3 = document.createElement("h1");
 ctaText3.textContent = " Awesome";
 let ctaBtn = document.querySelector(".cta-text button");
+ctaBtn.textContent = siteContent.cta.button;
 cta.removeChild(ctaText1);
 cta.removeChild(ctaBtn);
 cta.appendChild(ctaText1);
 cta.appendChild(ctaText2);
 cta.appendChild(ctaText3);
 cta.appendChild(ctaBtn);
+let ctaImg = document.getElementById("cta-img");
+ctaImg.src = siteContent.cta["img-src"];
 
+let textContent = document.querySelectorAll(".text-content"); //5 text contents, each with two children //this[0 -> 4].children[0 & 1]
+let textContentList = [];
+Object.values(siteContent["main-content"]).forEach(value => {
+  textContentList.push(value);
+});
+counter = 0;
+textContent.forEach(div => {
+  if (counter === 4) {
+    counter++;
+  }
+  div.children[0].textContent = textContentList[counter];
+  counter++;
+  div.children[1].textContent = textContentList[counter];
+  counter++;
+});
+let middleImg = document.getElementById("middle-img");
+middleImg.src = siteContent["main-content"]["middle-img-src"];
 
-let contact;
+let contactText = document.querySelector(".contact");
+let contactList = [];
+Object.values(siteContent["contact"]).forEach( value => {
+  contactList.push(value);
+});
+for (let i = 0; i < contactList.length; i++) {
+  contactText.children[i].textContent = contactList[i];
+}
