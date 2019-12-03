@@ -41,6 +41,9 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+//Task 2
+
+  //Header
 let links = document.querySelectorAll("a");
 let counter = 1;
 links.forEach(link => {
@@ -48,6 +51,7 @@ links.forEach(link => {
   counter++;
 });
 
+  //CTA
 let cta = document.querySelector(".cta-text");
 let ctaText1 = document.querySelector(".cta-text h1");
 ctaText1.textContent = "DOM";
@@ -66,6 +70,7 @@ cta.appendChild(ctaBtn);
 let ctaImg = document.getElementById("cta-img");
 ctaImg.src = siteContent.cta["img-src"];
 
+  //Main Content
 let textContent = document.querySelectorAll(".text-content"); //5 text contents, each with two children //this[0 -> 4].children[0 & 1]
 let textContentList = [];
 Object.values(siteContent["main-content"]).forEach(value => {
@@ -84,6 +89,7 @@ textContent.forEach(div => {
 let middleImg = document.getElementById("middle-img");
 middleImg.src = siteContent["main-content"]["middle-img-src"];
 
+  //Contact
 let contactText = document.querySelector(".contact");
 let contactList = [];
 Object.values(siteContent["contact"]).forEach( value => {
@@ -93,5 +99,21 @@ for (let i = 0; i < contactList.length; i++) {
   contactText.children[i].textContent = contactList[i];
 }
 
+  //Footer
 let footerTag = document.querySelector("footer p");
 footerTag.textContent = siteContent["footer"]["copyright"];
+
+//Task 3
+
+  //Nav Color
+links.forEach(link => {
+  link.style.color = "green";
+});
+  //Nav Items
+let first = document.createElement("a");
+first.textContent = "Inside";
+let last = document.createElement("a");
+last.textContent = "Out";
+let myNav = document.querySelector("nav");
+myNav.prepend(first);
+myNav.appendChild(last);
