@@ -92,3 +92,6 @@ Object.values(siteContent["contact"]).forEach( value => {
 for (let i = 0; i < contactList.length; i++) {
   contactText.children[i].textContent = contactList[i];
 }
+
+let footerTag = document.querySelector("footer p");
+footerTag.textContent = siteContent["footer"]["copyright"];
